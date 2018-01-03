@@ -1,5 +1,6 @@
 apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     def config = rootProject.extensions.getByName("ext")
@@ -19,5 +20,7 @@ dependencies {
     feature project(":splash")
 
     api deps.appCompat
-    api deps.kotlin
+    implementation deps.kotlin
+    implementation deps.archLifecycleExtensions
+    kapt deps.archLifecycleCompiler
 }

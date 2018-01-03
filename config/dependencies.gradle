@@ -15,13 +15,16 @@ ext {
 
     //Android, Google
     supportVersion = '26.1.0'
+    archLifecycleVersion = '1.0.0'
 
     //Development
     daggerVersion = '2.12'
 
     deps = [
-            kotlin   : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
-            appCompat: "com.android.support:appcompat-v7:$supportVersion",
-            dagger   : "com.google.dagger:dagger:$daggerVersion",
+            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+            appCompat              : "com.android.support:appcompat-v7:$supportVersion",
+            dagger                 : "com.google.dagger:dagger:$daggerVersion",
+            archLifecycleExtensions: "android.arch.lifecycle:extensions:$archLifecycleVersion",
+            archLifecycleCompiler  : "android.arch.lifecycle:compiler:$archLifecycleVersion"
     ]
 }
