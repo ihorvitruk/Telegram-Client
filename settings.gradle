@@ -1,1 +1,1 @@
-include ':app', ':base', ':splash'
+include ':app', ':base', ':splash', ':instantapp'

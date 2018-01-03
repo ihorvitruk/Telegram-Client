@@ -1,5 +1,4 @@
-apply plugin: 'com.android.feature'
-apply plugin: 'kotlin-android'
+apply plugin: 'com.android.instantapp'
 
 android {
     def config = rootProject.extensions.getByName("ext")
@@ -10,14 +9,9 @@ android {
         versionCode config.versionCode
         versionName config.versionName
     }
-    
-    baseFeature true
 }
 
 dependencies {
-    application project(":app")
-    feature project(":splash")
-
-    api deps.appCompat
-    api deps.kotlin
+    implementation project(":splash")
+    implementation project(":base")
 }
