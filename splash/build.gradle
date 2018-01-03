@@ -1,19 +1,20 @@
 apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
+apply plugin: "kotlin-kapt"
 apply plugin: 'kotlin-android-extensions'
+
 android {
-    compileSdkVersion 26
 
+    def config = rootProject.extensions.getByName("ext")
 
-
+    compileSdkVersion config.compileSdkVersion
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        defaultConfig {
+            minSdkVersion config.minSdkVersion
+            targetSdkVersion config.targetSdkVersion
+            versionCode config.versionCode
+            versionName config.versionName
+        }
     }
 
     buildTypes {
@@ -22,14 +23,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation project(':base')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }

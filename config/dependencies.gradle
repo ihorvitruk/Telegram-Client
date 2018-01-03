@@ -14,7 +14,7 @@ ext {
     versionName = '0.0.0.1'
 
     //Android, Google
-    supportVersion = '27.0.2'
+    supportVersion = '26.1.0'
 
     //Development
     daggerVersion = '2.12'

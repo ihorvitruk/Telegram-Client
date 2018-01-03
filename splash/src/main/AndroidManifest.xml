@@ -11,7 +11,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data
-                    android:host="ihorvitruk.com"
+                    android:host="telegramclient.ihorvitruk.com"
                     android:pathPattern="/splash"
                     android:scheme="https" />
             </intent-filter>
