@@ -13,6 +13,10 @@ android {
     }
     
     baseFeature true
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -25,4 +29,6 @@ dependencies {
     api deps.lifecycle.runtime
     api deps.lifecycle.extensions
     kapt deps.lifecycle.compiler
+
+    kapt deps.databinding.compiler
 }
