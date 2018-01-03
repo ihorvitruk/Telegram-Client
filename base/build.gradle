@@ -4,12 +4,12 @@ apply plugin: 'kotlin-kapt'
 
 android {
     def config = rootProject.extensions.getByName("ext")
-    compileSdkVersion config.compileSdkVersion
+    compileSdkVersion config.versions.compileSdk
     defaultConfig {
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
+        minSdkVersion config.versions.minSdk
+        targetSdkVersion config.versions.targetSdk
+        versionCode config.versions.versionCode
+        versionName config.versions.versionName
     }
     
     baseFeature true
@@ -19,8 +19,10 @@ dependencies {
     application project(":app")
     feature project(":splash")
 
-    api deps.appCompat
-    implementation deps.kotlin
-    implementation deps.archLifecycleExtensions
-    kapt deps.archLifecycleCompiler
+    api deps.support.appCompat
+    api deps.kotlin.stdlib
+
+    api deps.lifecycle.runtime
+    api deps.lifecycle.extensions
+    kapt deps.lifecycle.compiler
 }

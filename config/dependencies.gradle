@@ -5,26 +5,55 @@ allprojects {
     }
 }
 
-ext {
-    //Config
-    compileSdkVersion = 26
-    minSdkVersion = 21
-    targetSdkVersion = 26
-    versionCode = 1
-    versionName = '0.0.0.1'
+ext.deps = [:]
 
-    //Android, Google
-    supportVersion = '26.1.0'
-    archLifecycleVersion = '1.0.0'
+def versions = [:]
 
-    //Development
-    daggerVersion = '2.12'
+//Config
+versions.gradlePlugin = '3.1.0-alpha06'
+versions.kotlin = '1.2.0'
+versions.compileSdk = 26
+versions.minSdk = 21
+versions.targetSdk = 26
+versions.versionCode = 1
+versions.versionName = '0.0.0.1'
 
-    deps = [
-            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
-            appCompat              : "com.android.support:appcompat-v7:$supportVersion",
-            dagger                 : "com.google.dagger:dagger:$daggerVersion",
-            archLifecycleExtensions: "android.arch.lifecycle:extensions:$archLifecycleVersion",
-            archLifecycleCompiler  : "android.arch.lifecycle:compiler:$archLifecycleVersion"
-    ]
-}
+//Android, Google
+versions.support = '26.1.0'
+versions.archLifecycle = '1.0.0'
+
+//Development
+versions.dagger = '2.12'
+
+ext.versions = versions
+
+def deps = [:]
+
+def gradle = [:]
+gradle.plugin = "com.android.tools.build:gradle:$versions.gradlePlugin"
+deps.gradle = gradle
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+def support = [:]
+support.appCompat = "com.android.support:appcompat-v7:$versions.support"
+deps.support = support
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+deps.dagger = dagger
+
+def lifecycle = [:]
+lifecycle.runtime = "android.arch.lifecycle:runtime:$versions.archLifecycle"
+lifecycle.extensions = "android.arch.lifecycle:extensions:$versions.archLifecycle"
+lifecycle.compiler = "android.arch.lifecycle:compiler:$versions.archLifecycle"
+deps.lifecycle = lifecycle
+
+def databinding = [:]
+databinding.compiler = "com.android.databinding:compiler:$versions.gradlePlugin"
+deps.databinding = databinding
+
+ext.deps = deps

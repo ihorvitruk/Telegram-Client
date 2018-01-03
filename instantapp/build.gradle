@@ -2,12 +2,12 @@ apply plugin: 'com.android.instantapp'
 
 android {
     def config = rootProject.extensions.getByName("ext")
-    compileSdkVersion config.compileSdkVersion
+    compileSdkVersion config.versions.compileSdk
     defaultConfig {
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
+        minSdkVersion config.versions.minSdk
+        targetSdkVersion config.versions.targetSdk
+        versionCode config.versions.versionCode
+        versionName config.versions.versionName
     }
 }
 
