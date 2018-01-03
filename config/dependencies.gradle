@@ -1,0 +1,27 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    //Config
+    compileSdkVersion = 26
+    minSdkVersion = 21
+    targetSdkVersion = 26
+    versionCode = 1
+    versionName = '0.0.0.1'
+
+    //Android, Google
+    supportVersion = '27.0.2'
+
+    //Development
+    daggerVersion = '2.12'
+
+    deps = [
+            kotlin   : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+            appCompat: "com.android.support:appcompat-v7:$supportVersion",
+            dagger   : "com.google.dagger:dagger:$daggerVersion",
+    ]
+}
