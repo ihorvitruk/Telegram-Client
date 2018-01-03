@@ -1,33 +1,21 @@
 apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
-apply plugin: "kotlin-kapt"
-apply plugin: 'kotlin-android-extensions'
 
 android {
     baseFeature true
-
     def config = rootProject.extensions.getByName("ext")
-
     compileSdkVersion config.compileSdkVersion
     defaultConfig {
-        defaultConfig {
-            minSdkVersion config.minSdkVersion
-            targetSdkVersion config.targetSdkVersion
-            versionCode config.versionCode
-            versionName config.versionName
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
     }
 }
 
 dependencies {
+    feature project(":splash")
+
     api deps.appCompat
     implementation deps.kotlin
-    feature project(":splash")
 }
