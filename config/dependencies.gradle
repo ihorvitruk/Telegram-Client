@@ -10,7 +10,7 @@ ext.deps = [:]
 def versions = [:]
 
 //Config
-versions.gradlePlugin = '3.1.0-alpha06'
+versions.gradlePlugin = '3.1.0-alpha08'
 versions.kotlin = '1.2.0'
 versions.compileSdk = 26
 versions.minSdk = 21
