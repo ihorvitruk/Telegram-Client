@@ -1,10 +1,10 @@
-package com.ihorvitruk.telegramclient.splash
+package com.ihorvitruk.telegramclient.presentation.splash
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import com.ihorvitruk.telegramclient.base.BaseView
-import com.ihorvitruk.telegramclient.splash.databinding.SplashViewBinding
+import com.ihorvitruk.telegramclient.presentation.base.BaseView
+import com.ihorvitruk.telegramclient.presentation.splash.databinding.SplashViewBinding
 
 class SplashView : BaseView<SplashViewBinding, SplashViewModel> {
 

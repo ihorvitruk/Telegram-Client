@@ -1,7 +1,7 @@
-package com.ihorvitruk.telegramclient.splash
+package com.ihorvitruk.telegramclient.presentation.splash
 
 import android.arch.lifecycle.MutableLiveData
-import com.ihorvitruk.telegramclient.base.BaseViewModel
+import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
 
 class SplashViewModel : BaseViewModel() {
 

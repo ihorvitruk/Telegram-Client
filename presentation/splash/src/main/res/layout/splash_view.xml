@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.ihorvitruk.telegramclient.splash.SplashViewModel" />
+            type="com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel" />
     </data>
 
     <FrameLayout

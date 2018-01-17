@@ -1,4 +1,4 @@
-package com.ihorvitruk.telegramclient.base
+package com.ihorvitruk.telegramclient.presentation.base
 
 import android.arch.lifecycle.ViewModel
 

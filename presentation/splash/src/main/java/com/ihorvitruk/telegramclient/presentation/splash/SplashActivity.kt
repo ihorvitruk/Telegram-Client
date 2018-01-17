@@ -1,7 +1,7 @@
-package com.ihorvitruk.telegramclient.splash
+package com.ihorvitruk.telegramclient.presentation.splash
 
 import android.os.Bundle
-import com.ihorvitruk.telegramclient.base.BaseActivity
+import com.ihorvitruk.telegramclient.presentation.base.BaseActivity
 
 class SplashActivity : BaseActivity() {
 
