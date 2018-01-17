@@ -11,6 +11,8 @@ android {
         versionCode config.versions.versionCode
         versionName config.versions.versionName
     }
+    
+    baseFeature true
 
     dataBinding {
         enabled = true
@@ -18,6 +20,15 @@ android {
 }
 
 dependencies {
-    implementation project(':base')
+    application project(":app")
+    feature project(":presentation:splash")
+
+    api deps.support.appCompat
+    api deps.kotlin.stdlib
+
+    api deps.lifecycle.runtime
+    api deps.lifecycle.extensions
+    kapt deps.lifecycle.compiler
+
     kapt deps.databinding.compiler
 }

@@ -12,6 +12,6 @@ android {
 }
 
 dependencies {
-    implementation project(":splash")
-    implementation project(":base")
+    implementation project(":presentation:splash")
+    implementation project(":presentation:base")
 }
