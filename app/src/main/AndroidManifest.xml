@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ihorvitruk.telegramclient">
+    package="com.ihorvitruk.telegramclient.app">
 
     <application
         android:allowBackup="true"
@@ -7,8 +7,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name="com.ihorvitruk.telegramclient.presentation.splash.SplashActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name="com.ihorvitruk.telegramclient.app.MainActivity">
+            <intent-filter android:order="1">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="telegramclient.ihorvitruk.com"
+                    android:pathPattern="/*"
+                    android:scheme="https" />
+            </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

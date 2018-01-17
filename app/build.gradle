@@ -6,7 +6,7 @@ android {
     def config = rootProject.extensions.getByName("ext")
     compileSdkVersion config.versions.compileSdk
     defaultConfig {
-        applicationId "com.ihorvitruk.telegramclient"
+        applicationId "com.ihorvitruk.telegramclient.app"
         minSdkVersion config.versions.minSdk
         targetSdkVersion config.versions.targetSdk
         versionCode config.versions.versionCode
@@ -26,6 +26,7 @@ android {
 }
 
 dependencies {
+    implementation project(':presentation:base')
     implementation project(':presentation:splash')
     kapt deps.databinding.compiler
 }
