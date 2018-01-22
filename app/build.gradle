@@ -28,5 +28,6 @@ android {
 dependencies {
     implementation project(':presentation:base')
     implementation project(':presentation:splash')
+    implementation project(":data")
     kapt deps.databinding.compiler
 }

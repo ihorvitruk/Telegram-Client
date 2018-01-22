@@ -2,6 +2,7 @@ package com.ihorvitruk.telegramclient.app
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.ihorvitruk.telegramclient.data.SomeRepository
 import com.ihorvitruk.telegramclient.presentation.splash.SplashView
 import com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel
 
@@ -16,5 +17,7 @@ class MainActivity: AppCompatActivity() {
         setContentView(splashView)
 
         splashViewModel.onCreate()
+
+        SomeRepository(this).doSmthg()
     }
 }

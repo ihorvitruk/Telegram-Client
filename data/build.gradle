@@ -1,18 +1,16 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
-
-
+    def config = rootProject.extensions.getByName("ext")
+    compileSdkVersion config.versions.compileSdk
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        minSdkVersion config.versions.minSdk
+        targetSdkVersion config.versions.targetSdk
+        versionCode config.versions.versionCode
+        versionName config.versions.versionName
     }
 
     buildTypes {
@@ -25,10 +23,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation project(":libtd")
+    api deps.kotlin.stdlib
+    kapt deps.databinding.compiler
 }

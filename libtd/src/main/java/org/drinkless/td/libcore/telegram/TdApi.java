@@ -15206,6 +15206,9 @@ public class TdApi {
     /**
      * A pull quote.
      */
+    /**
+     * A pull quote.
+     */
     public static class PageBlockPullQuote extends PageBlock {
         /**
          * Quote text.
@@ -18504,7 +18507,7 @@ public class TdApi {
         }
 
         /**
-         * Identifier uniquely determining type of the object.
+         * Identifier uniquely determining type of theœ object.
          */
         public static final int CONSTRUCTOR = 1425690001;
 

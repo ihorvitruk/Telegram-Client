@@ -1,1 +1,1 @@
-include ':app', ':presentation:base', ':presentation:splash', ':instantapp', ':data'
+include ':app', ':presentation:base', ':presentation:splash', ':instantapp', ':data', ":libtd"
