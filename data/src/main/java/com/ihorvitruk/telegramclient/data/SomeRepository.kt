@@ -32,11 +32,24 @@ class SomeRepository(private val context: Context) {
 
                 client.send(smsSender, {
                     log(it)
-                    val logout = TdApi.LogOut()
-                    client.send(logout, ::log)
+
+                    val state = TdApi.GetAuthorizationState()
+                    client.send(state, {
+                        log(it)
+
+                        val checkAuthCode = TdApi.CheckAuthenticationCode("12345", null, null)
+                        client.send(checkAuthCode, {
+                            log(it)
+
+                            val logout = TdApi.LogOut()
+                            client.send(logout, ::log)
+                        })
+                    })
                 })
             })
         })
+
+        client.close()
     }
 
     private fun log(obj: TdApi.Object) {
