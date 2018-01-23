@@ -49,7 +49,7 @@ class SomeRepository(private val context: Context) {
             })
         })
 
-        client.close()
+        /*client.close()*/
     }
 
     private fun log(obj: TdApi.Object) {

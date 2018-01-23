@@ -24,6 +24,13 @@ android {
 
 dependencies {
     implementation project(":libtd")
+    implementation project(":domain")
     api deps.kotlin.stdlib
     kapt deps.databinding.compiler
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
 }

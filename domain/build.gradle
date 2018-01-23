@@ -1,0 +1,19 @@
+apply plugin: 'java-library'
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    api deps.kotlin.stdlib
+    api deps.kotlin.coroutines
+    kapt deps.databinding.compiler
+}
+
+sourceCompatibility = "1.6"
+targetCompatibility = "1.6"
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+

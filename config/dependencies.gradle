@@ -11,7 +11,8 @@ def versions = [:]
 
 //Config
 versions.gradlePlugin = '3.1.0-alpha08'
-versions.kotlin = '1.2.0'
+versions.kotlin = '1.2.10'
+versions.kotlinCoroutines = "0.21.2"
 versions.compileSdk = 26
 versions.minSdk = 21
 versions.targetSdk = 26
@@ -36,6 +37,7 @@ deps.gradle = gradle
 def kotlin = [:]
 kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+kotlin.coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinCoroutines"
 deps.kotlin = kotlin
 
 def support = [:]
