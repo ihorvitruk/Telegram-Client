@@ -9,13 +9,13 @@ import kotlinx.coroutines.experimental.async
 
 class AccountRepository : IAccountRepository {
 
-    override fun readAccount(): Deferred<Account> {
-        val deferred = CompletableDeferred<Account>()
-        async {
+    override fun readAccount() = async {
+        if (System.currentTimeMillis() % 2 == 1L) {
             SystemClock.sleep(6000)
-            deferred.complete(Account("", "Ihor", "Vitruk"))
+            Account("", "Ihor", "Vitruk")
+        } else {
+            throw Throwable("ssss")
         }
-        return deferred
     }
 
     override fun saveAccount(): Deferred<Void> {

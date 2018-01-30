@@ -22,13 +22,21 @@ android {
 dependencies {
     application project(":app")
     feature project(":presentation:splash")
+    api project(":domain")
 
     api deps.support.appCompat
     api deps.kotlin.stdlib
+    api deps.kotlin.coroutines
 
     api deps.lifecycle.runtime
     api deps.lifecycle.extensions
     kapt deps.lifecycle.compiler
 
     kapt deps.databinding.compiler
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
 }

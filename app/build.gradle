@@ -29,7 +29,6 @@ dependencies {
     implementation project(':presentation:base')
     implementation project(':presentation:splash')
     implementation project(":data")
-    implementation project(":domain")
     kapt deps.databinding.compiler
 }
 

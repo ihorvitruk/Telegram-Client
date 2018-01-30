@@ -1,16 +1,16 @@
 package com.ihorvitruk.telegramclient.app
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import com.ihorvitruk.telegramclient.data.repository.AccountRepository
+import com.ihorvitruk.telegramclient.presentation.base.BaseActivity
+import com.ihorvitruk.telegramclient.presentation.base.UI
 import com.ihorvitruk.telegramclient.presentation.splash.SplashView
 import com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel
 import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.runBlocking
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,14 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         /*SomeRepository(this).doSmthg()*/
 
+        splashViewModel
         loadData()
     }
 
-    private fun loadData() {
-        launch {
-            val account = AccountRepository().readAccount().await()
-            Log.d("OBJ", account.toString())
-        }
-        Log.d("OBJ", "Hello 2")
-    }
+
 }
