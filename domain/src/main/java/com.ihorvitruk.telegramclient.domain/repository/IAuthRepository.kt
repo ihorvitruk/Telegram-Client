@@ -1,6 +1,6 @@
 package com.ihorvitruk.telegramclient.domain.repository
 
-import com.ihorvitruk.telegramclient.domain.entity.account.AuthState
+import com.ihorvitruk.telegramclient.domain.entity.auth.AuthState
 import kotlinx.coroutines.experimental.Deferred
 
 interface IAuthRepository {

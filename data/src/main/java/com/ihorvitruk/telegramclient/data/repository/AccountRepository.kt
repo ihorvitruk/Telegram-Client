@@ -12,7 +12,7 @@ class AccountRepository : IAccountRepository {
     override fun readAccount() = async {
         if (System.currentTimeMillis() % 2 == 1L) {
             SystemClock.sleep(6000)
-            Account("", "Ihor", "Vitruk")
+            Account("1234", "Ihor", "Vitruk")
         } else {
             throw Throwable("ssss")
         }
