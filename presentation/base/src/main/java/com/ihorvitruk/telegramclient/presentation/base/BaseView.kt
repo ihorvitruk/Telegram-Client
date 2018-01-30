@@ -1,6 +1,7 @@
 package com.ihorvitruk.telegramclient.presentation.base
 
 import android.arch.lifecycle.LifecycleOwner
+import android.arch.lifecycle.ViewModel
 import android.content.Context
 import android.databinding.BindingAdapter
 import android.databinding.ViewDataBinding
@@ -11,7 +12,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
 
-abstract class BaseView<BINDING : ViewDataBinding, VIEW_MODEL : BaseViewModel> : FrameLayout {
+abstract class BaseView<BINDING : ViewDataBinding, VIEW_MODEL : BaseViewModel<out BaseRouter>> : FrameLayout {
 
     constructor(context: Context?, viewModel: VIEW_MODEL)
             : super(context) {

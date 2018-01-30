@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModel
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
 
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel<ROUTER: BaseRouter> : ViewModel() {
 
     val errorText = MutableLiveData<String>()
 

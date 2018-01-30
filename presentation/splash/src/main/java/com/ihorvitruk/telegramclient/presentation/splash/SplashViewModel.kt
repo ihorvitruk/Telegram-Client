@@ -5,7 +5,7 @@ import com.ihorvitruk.telegramclient.domain.interactor.SplashInteractor
 import com.ihorvitruk.telegramclient.domain.repository.IAccountRepository
 import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
 
-class SplashViewModel(private val splashInteractor: SplashInteractor) : BaseViewModel() {
+class SplashViewModel(private val splashInteractor: SplashInteractor) : BaseViewModel<SplashRouter>() {
 
     val title = MutableLiveData<String>()
 
