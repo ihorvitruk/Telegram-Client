@@ -1,7 +1,6 @@
 package com.ihorvitruk.telegramclient.presentation.splash
 
 import android.content.Context
-import android.util.AttributeSet
 import android.view.LayoutInflater
 import com.ihorvitruk.telegramclient.presentation.base.BaseView
 import com.ihorvitruk.telegramclient.presentation.splash.databinding.SplashViewBinding

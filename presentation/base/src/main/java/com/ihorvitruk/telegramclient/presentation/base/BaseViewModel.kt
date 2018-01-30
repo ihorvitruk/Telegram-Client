@@ -18,8 +18,8 @@ abstract class BaseViewModel : ViewModel() {
     open fun onDestroy() = Unit
 
     protected fun <T> execute(job: Deferred<T>,
-                              onComplete: (T) -> Void,
-                              onError: (Throwable) -> Void) = async(UI) {
+                              onComplete: (T) -> Unit,
+                              onError: (Throwable) -> Unit) = async(UI) {
         try {
             onComplete.invoke(job.await())
         } catch (t: Throwable) {

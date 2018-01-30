@@ -14,13 +14,10 @@ class SplashViewModel(private val accountRepository: IAccountRepository) : BaseV
     }
 
     fun loadData() {
-       /* execute(accountRepository.readAccount(),
-                { Toast.makeText(this@MainActivity, account.toString(), Toast.LENGTH_LONG).show() },
-                { t ->
-                    Toast.makeText(this@MainActivity,
-                            "Throwable: " + t.message, Toast.LENGTH_LONG).show()
-                }
-        )*/
+        execute(accountRepository.readAccount(),
+                { errorText.postValue(it.toString()) },
+                { errorText.postValue(it.toString()) }
+        )
     }
 }
 
