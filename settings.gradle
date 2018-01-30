@@ -1,7 +1,9 @@
 include ':app',
         ':presentation:base',
         ':presentation:splash',
+        ':presentation:login',
+        ':presentation:chat',
         ':instantapp',
         ':data',
         ':domain',
-        ":libtd"
+        ':libtd'

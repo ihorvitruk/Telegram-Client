@@ -2,7 +2,6 @@ package com.ihorvitruk.telegramclient.presentation.splash
 
 import android.arch.lifecycle.MutableLiveData
 import com.ihorvitruk.telegramclient.domain.interactor.SplashInteractor
-import com.ihorvitruk.telegramclient.domain.repository.IAccountRepository
 import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
 
 class SplashViewModel(private val splashInteractor: SplashInteractor) : BaseViewModel<SplashRouter>() {
@@ -14,9 +13,9 @@ class SplashViewModel(private val splashInteractor: SplashInteractor) : BaseView
         title.postValue("Hello 2")
     }
 
-    fun loadData() {
+    fun checkAuthorization() {
         execute(splashInteractor.isUserLoggedIn(),
-                { errorText.postValue(it.toString()) },
+                { router?.onAuthorizationChecked(it) },
                 { errorText.postValue(it.toString()) }
         )
     }

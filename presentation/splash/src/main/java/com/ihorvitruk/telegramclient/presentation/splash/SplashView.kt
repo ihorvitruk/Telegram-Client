@@ -1,5 +1,6 @@
 package com.ihorvitruk.telegramclient.presentation.splash
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.databinding.BindingAdapter
 import android.text.TextUtils
@@ -9,6 +10,7 @@ import android.widget.Toast
 import com.ihorvitruk.telegramclient.presentation.base.BaseView
 import com.ihorvitruk.telegramclient.presentation.splash.databinding.SplashViewBinding
 
+@SuppressLint("ViewConstructor")
 class SplashView(context: Context?, viewModel: SplashViewModel)
     : BaseView<SplashViewBinding, SplashViewModel>(context, viewModel) {
 

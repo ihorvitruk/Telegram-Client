@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
@@ -6,18 +6,10 @@ android {
     def config = rootProject.extensions.getByName("ext")
     compileSdkVersion config.versions.compileSdk
     defaultConfig {
-        applicationId "com.ihorvitruk.telegramclient.app"
         minSdkVersion config.versions.minSdk
         targetSdkVersion config.versions.targetSdk
         versionCode config.versions.versionCode
         versionName config.versions.versionName
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 
     dataBinding {
@@ -27,16 +19,5 @@ android {
 
 dependencies {
     implementation project(':presentation:base')
-    implementation project(':presentation:splash')
-    implementation project(':presentation:login')
-    implementation project(':presentation:chat')
-    implementation project(":data")
     kapt deps.databinding.compiler
 }
-
-kotlin {
-    experimental {
-        coroutines 'enable'
-    }
-}
-
