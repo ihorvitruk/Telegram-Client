@@ -15,7 +15,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val splashViewModel = SplashViewModel()
+        val splashViewModel = SplashViewModel(AccountRepository())
 
         val splashView = SplashView(this, splashViewModel)
         setContentView(splashView)
@@ -24,8 +24,7 @@ class MainActivity : BaseActivity() {
 
         /*SomeRepository(this).doSmthg()*/
 
-        splashViewModel
-        loadData()
+        splashViewModel.loadData()
     }
 
 
