@@ -4,6 +4,7 @@ import com.ihorvitruk.telegramclient.domain.entity.auth.AuthState
 import com.ihorvitruk.telegramclient.domain.repository.IAuthRepository
 import kotlinx.coroutines.experimental.CompletableDeferred
 import kotlinx.coroutines.experimental.Deferred
+import org.drinkless.td.libcore.telegram.Client
 
 class AuthRepository(private val apiId: String,
                      private val apiHash: String,
@@ -11,8 +12,9 @@ class AuthRepository(private val apiId: String,
                      private val filesDirectory: String,
                      private val deviceModel: String,
                      private val systemVersion: String,
-                     private val systemLanguageCode: String) : TdLibRepository(), IAuthRepository {
-    override fun sendCode(phoneNumber: String): Deferred<Void> {
+                     private val systemLanguageCode: String,
+                     client: Client) : TdLibRepository(client), IAuthRepository {
+    override fun sendCode(phoneNumber: String): Deferred<Unit> {
         return CompletableDeferred()
     }
 
@@ -20,11 +22,11 @@ class AuthRepository(private val apiId: String,
         return CompletableDeferred()
     }
 
-    override fun checkCode(code: Int): Deferred<Void> {
+    override fun checkCode(code: Int): Deferred<Unit> {
         return CompletableDeferred()
     }
 
-    override fun logout(): Deferred<Void> {
+    override fun logout(): Deferred<Unit> {
         return CompletableDeferred()
     }
 }

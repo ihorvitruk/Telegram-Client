@@ -31,4 +31,8 @@ abstract class BaseViewModel<R : BaseRouter> : ViewModel() {
             onError.invoke(t)
         }
     }
+
+    protected fun handleError(error: Throwable) {
+        //TODO implement some basic toString transforming and displaying
+    }
 }

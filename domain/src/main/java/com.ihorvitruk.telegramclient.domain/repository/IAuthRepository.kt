@@ -5,11 +5,11 @@ import kotlinx.coroutines.experimental.Deferred
 
 interface IAuthRepository {
 
-    fun sendCode(phoneNumber: String): Deferred<Void>
+    fun sendCode(phoneNumber: String): Deferred<Unit>
 
     fun getAuthState(): Deferred<AuthState>
 
-    fun checkCode(code: Int): Deferred<Void>
+    fun checkCode(code: Int): Deferred<Unit>
 
-    fun logout(): Deferred<Void>
+    fun logout(): Deferred<Unit>
 }

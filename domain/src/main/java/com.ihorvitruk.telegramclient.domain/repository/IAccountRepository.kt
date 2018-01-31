@@ -7,7 +7,7 @@ interface IAccountRepository {
 
     fun readAccount(): Deferred<Account>
 
-    fun saveAccount(): Deferred<Void>
+    fun saveAccount(): Deferred<Unit>
 
-    fun deleteAccount(): Deferred<Void>
+    fun deleteAccount(): Deferred<Unit>
 }

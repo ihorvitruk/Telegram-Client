@@ -1,10 +1,7 @@
 package com.ihorvitruk.telegramclient.data.repository
 
-abstract class TdLibRepository {
+import org.drinkless.td.libcore.telegram.Client
 
-    /*private val context: Context
-
-    private val */
-
+abstract class TdLibRepository(private val client: Client) {
 
 }
