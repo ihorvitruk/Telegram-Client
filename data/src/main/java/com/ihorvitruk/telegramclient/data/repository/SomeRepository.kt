@@ -1,4 +1,4 @@
-package com.ihorvitruk.telegramclient.data
+package com.ihorvitruk.telegramclient.data.repository
 
 import android.content.Context
 import android.util.Log

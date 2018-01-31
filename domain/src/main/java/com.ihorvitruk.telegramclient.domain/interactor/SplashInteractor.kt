@@ -1,11 +1,11 @@
 package com.ihorvitruk.telegramclient.domain.interactor
 
-import com.ihorvitruk.telegramclient.domain.repository.IAccountRepository
+import com.ihorvitruk.telegramclient.domain.repository.IValueRepository
 import kotlinx.coroutines.experimental.async
 
-class SplashInteractor(private val accountRepository: IAccountRepository) {
+class SplashInteractor(private val valueRepository: IValueRepository) {
 
     fun isUserLoggedIn() = async {
-        accountRepository.readAccount().await().apiId != null
+        valueRepository.read().await().apiId != null
     }
 }

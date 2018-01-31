@@ -1,7 +1,7 @@
 package com.ihorvitruk.telegramclient.app
 
 import android.os.Bundle
-import com.ihorvitruk.telegramclient.data.repository.AccountRepository
+import com.ihorvitruk.telegramclient.data.repository.ValueRepository
 import com.ihorvitruk.telegramclient.domain.interactor.SplashInteractor
 import com.ihorvitruk.telegramclient.presentation.chat.list.ChatListView
 import com.ihorvitruk.telegramclient.presentation.chat.list.ChatListViewModel
@@ -13,7 +13,7 @@ import com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel
 
 class MainActivity : BaseActivity() {
 
-    private val splashViewModel = SplashViewModel(SplashInteractor(AccountRepository()))
+    private val splashViewModel = SplashViewModel(SplashInteractor(ValueRepository()))
 
     private val loginPhoneViewModel = LoginPhoneViewModel()
 
