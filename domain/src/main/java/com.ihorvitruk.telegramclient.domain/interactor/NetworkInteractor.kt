@@ -1,0 +1,3 @@
+package com.ihorvitruk.telegramclient.domain.interactor
+
+class NetworkInteractor

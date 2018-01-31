@@ -1,6 +1,8 @@
-package com.ihorvitruk.telegramclient.presentation.base
+package com.ihorvitruk.telegramclient.app
 
 import android.support.v7.app.AppCompatActivity
+import com.ihorvitruk.telegramclient.presentation.base.BaseView
+import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
 import java.util.*
 
 abstract class BaseActivity : AppCompatActivity() {

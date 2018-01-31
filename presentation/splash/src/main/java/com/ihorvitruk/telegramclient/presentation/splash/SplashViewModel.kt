@@ -11,9 +11,11 @@ class SplashViewModel(private val splashInteractor: SplashInteractor) : BaseView
     override fun onCreate() {
         super.onCreate()
         title.postValue("Hello 2")
+
+        checkAuthorization()
     }
 
-    fun checkAuthorization() {
+    private fun checkAuthorization() {
         execute(splashInteractor.isUserLoggedIn(),
                 { router?.onAuthorizationChecked(it) },
                 { errorText.postValue(it.toString()) }

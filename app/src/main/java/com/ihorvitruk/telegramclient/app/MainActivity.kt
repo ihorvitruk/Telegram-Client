@@ -3,7 +3,6 @@ package com.ihorvitruk.telegramclient.app
 import android.os.Bundle
 import com.ihorvitruk.telegramclient.data.repository.AccountRepository
 import com.ihorvitruk.telegramclient.domain.interactor.SplashInteractor
-import com.ihorvitruk.telegramclient.presentation.base.BaseActivity
 import com.ihorvitruk.telegramclient.presentation.chat.list.ChatListView
 import com.ihorvitruk.telegramclient.presentation.chat.list.ChatListViewModel
 import com.ihorvitruk.telegramclient.presentation.login.phone.LoginPhoneView
@@ -24,7 +23,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         showSplash()
-        splashViewModel.checkAuthorization()
     }
 
     private val splashRouter = object : SplashRouter() {
@@ -35,8 +33,7 @@ class MainActivity : BaseActivity() {
             }
         }
     }
-
-
+    
     private fun showSplash() {
         val splashView = SplashView(this, splashViewModel)
         splashViewModel.router = splashRouter
