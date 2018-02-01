@@ -7,12 +7,15 @@ import kotlinx.coroutines.experimental.async
 
 class KeyValueRepository(context: Context) : IKeyValueRepository {
 
+    private var prefs: SharedPreferences
+
+    init {
+        prefs = context.getSharedPreferences(KEY_VALUE_FILE, Context.MODE_PRIVATE)
+    }
+
     companion object {
         private val KEY_VALUE_FILE = "key_values"
     }
-
-    private val prefs: SharedPreferences = context.getSharedPreferences(
-            KEY_VALUE_FILE, Context.MODE_PRIVATE)
 
     override fun create(key: String, value: String?) = async {
         prefs.edit().putString(key, value).apply()

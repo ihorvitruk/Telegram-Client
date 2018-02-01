@@ -1,11 +1,11 @@
 package com.ihorvitruk.telegramclient.domain.repository
 
 import kotlinx.coroutines.experimental.Deferred
-import java.security.Key
+import java.security.KeyPair
 
 interface IEncryptionKeyRepository {
 
-    fun createKey(/*TODO some input password?*/): Deferred<Unit>
+    fun readKeyPair(): Deferred<KeyPair?>
 
-    fun readKey(): Deferred<Key>
+    fun deleteKeyPair(): Deferred<Unit>
 }

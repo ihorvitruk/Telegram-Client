@@ -24,14 +24,14 @@ class CredentialsInteractor(private val keyValueRepository: IKeyValueRepository,
 
     private fun readCredential(key: String) = async {
         val cipheredCred = keyValueRepository.read(key).await()
-        val encryptionKey = encryptionKeyRepository.readKey().await()
-        val cred = encryptionRepository.decrypt(cipheredCred, encryptionKey).await()
+        val encryptionKey = encryptionKeyRepository.readKeyPair().await()
+        val cred = encryptionRepository.decrypt(cipheredCred, encryptionKey?.private).await()
         cred
     }
 
     private fun writeCredential(key: String, credential: String) = async {
-        val encryptionKey = encryptionKeyRepository.readKey().await()
-        val cipheredCred = encryptionRepository.encrypt(credential, encryptionKey).await()
+        val encryptionKey = encryptionKeyRepository.readKeyPair().await()
+        val cipheredCred = encryptionRepository.encrypt(credential, encryptionKey?.public).await()
         keyValueRepository.create(key, cipheredCred)
     }
 }

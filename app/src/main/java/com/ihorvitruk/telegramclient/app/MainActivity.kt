@@ -17,16 +17,7 @@ import com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel
 
 class MainActivity : BaseActivity() {
 
-    private val splashViewModel = SplashViewModel(
-            CredentialsInteractor(
-                    KeyValueRepository(this),
-                    EncryptionKeyRepository(),
-                    EncryptionRepository()
-            ),
-            NetworkInteractor(
-                    NetworkRepository(this)
-            )
-    )
+    private lateinit var splashViewModel: SplashViewModel
 
     private val loginPhoneViewModel = LoginPhoneViewModel()
 
@@ -34,7 +25,16 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        splashViewModel = SplashViewModel(
+                CredentialsInteractor(
+                        KeyValueRepository(this),
+                        EncryptionKeyRepository(this),
+                        EncryptionRepository()
+                ),
+                NetworkInteractor(
+                        NetworkRepository(this)
+                )
+        )
         showSplash()
     }
 

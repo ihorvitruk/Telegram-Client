@@ -33,6 +33,6 @@ abstract class BaseViewModel<R : BaseRouter> : ViewModel() {
     }
 
     protected fun handleError(error: Throwable) {
-        //TODO implement some basic toString transforming and displaying
+        errorText.postValue(error.message)
     }
 }

@@ -5,7 +5,7 @@ import java.security.Key
 
 interface IEncryptionRepository {
 
-    fun encrypt(plainText: String, key: Key): Deferred<String>
+    fun encrypt(plainText: String, key: Key?): Deferred<String>
 
-    fun decrypt(cipherData: String?, key: Key): Deferred<String?>
+    fun decrypt(cipherData: String?, key: Key?): Deferred<String?>
 }

@@ -14,13 +14,13 @@ class EncryptionRepository : IEncryptionRepository {
 
     private val cipher = Cipher.getInstance(transformation)
 
-    override fun encrypt(plainText: String, key: Key) = async {
+    override fun encrypt(plainText: String, key: Key?) = async {
         cipher.init(Cipher.ENCRYPT_MODE, key)
         val bytes = cipher.doFinal(plainText.toByteArray())
         Base64.encodeToString(bytes, Base64.DEFAULT)
     }
 
-    override fun decrypt(cipherData: String?, key: Key) = async {
+    override fun decrypt(cipherData: String?, key: Key?) = async {
         cipher.init(Cipher.DECRYPT_MODE, key)
         val cipherDataBytes = Base64.decode(cipherData, Base64.DEFAULT)
         val data = cipher.doFinal(cipherDataBytes)

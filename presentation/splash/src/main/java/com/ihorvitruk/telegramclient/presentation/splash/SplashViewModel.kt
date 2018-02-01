@@ -4,6 +4,8 @@ import android.arch.lifecycle.MutableLiveData
 import com.ihorvitruk.telegramclient.domain.interactor.CredentialsInteractor
 import com.ihorvitruk.telegramclient.domain.interactor.NetworkInteractor
 import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
+import com.ihorvitruk.telegramclient.presentation.base.UI
+import kotlinx.coroutines.experimental.async
 
 class SplashViewModel(
         private val credentialsInteractor: CredentialsInteractor,
@@ -14,7 +16,12 @@ class SplashViewModel(
 
     override fun onCreate() {
         super.onCreate()
-        checkNetworkConnection()
+        async(UI) {
+            credentialsInteractor.writeApiId("45678").await()
+            val apiId = credentialsInteractor.readApiId().await()
+            handleError(Throwable(apiId))
+        }
+        //checkNetworkConnection()
     }
 
     private fun checkNetworkConnection() {
@@ -29,9 +36,7 @@ class SplashViewModel(
                     val isLoggedIn = it != null
                     router?.onAuthorizationChecked(isLoggedIn)
                 },
-                {
-                    errorText.postValue(it.toString())
-                }
+                { handleError(it) }
         )
     }
 }
