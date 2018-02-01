@@ -1,10 +1,11 @@
 package com.ihorvitruk.telegramclient.data.repository
 
-import com.ihorvitruk.telegramclient.domain.repository.IKeyRepository
+import com.ihorvitruk.telegramclient.domain.repository.IEncryptionKeyRepository
 import kotlinx.coroutines.experimental.Deferred
 import java.security.Key
 
-class KeyRepository: IKeyRepository {
+class EncryptionKeyRepository : IEncryptionKeyRepository {
+
     override fun createKey(): Deferred<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

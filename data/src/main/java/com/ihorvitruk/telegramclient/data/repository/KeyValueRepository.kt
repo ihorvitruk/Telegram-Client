@@ -1,23 +1,30 @@
 package com.ihorvitruk.telegramclient.data.repository
 
+import android.content.Context
+import android.content.SharedPreferences
 import com.ihorvitruk.telegramclient.domain.repository.IKeyValueRepository
-import kotlinx.coroutines.experimental.CompletableDeferred
-import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.experimental.async
 
-class KeyValueRepository : IKeyValueRepository {
-    override fun create(key: String, value: String?): Deferred<Unit> {
-        return CompletableDeferred()
+class KeyValueRepository(context: Context) : IKeyValueRepository {
+
+    companion object {
+        private val KEY_VALUE_FILE = "key_values"
     }
 
-    override fun read(key: String): Deferred<String> {
-        return CompletableDeferred()
+    private val prefs: SharedPreferences = context.getSharedPreferences(
+            KEY_VALUE_FILE, Context.MODE_PRIVATE)
+
+    override fun create(key: String, value: String?) = async {
+        prefs.edit().putString(key, value).apply()
     }
 
-    override fun update(key: String, newValue: String?): Deferred<Unit> {
-        return CompletableDeferred()
+    override fun read(key: String) = async {
+        prefs.getString(key, null)
     }
 
-    override fun delete(key: String): Deferred<Unit> {
-        return CompletableDeferred()
+    override fun update(key: String, newValue: String?) = create(key, newValue)
+
+    override fun delete(key: String) = async {
+        prefs.edit().remove(key).apply()
     }
 }
