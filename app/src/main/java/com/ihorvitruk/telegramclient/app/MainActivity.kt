@@ -1,8 +1,12 @@
 package com.ihorvitruk.telegramclient.app
 
 import android.os.Bundle
+import com.ihorvitruk.telegramclient.data.repository.EncryptionRepository
+import com.ihorvitruk.telegramclient.data.repository.KeyRepository
+import com.ihorvitruk.telegramclient.data.repository.NetworkRepository
 import com.ihorvitruk.telegramclient.data.repository.ValueRepository
-import com.ihorvitruk.telegramclient.domain.interactor.SplashInteractor
+import com.ihorvitruk.telegramclient.domain.interactor.CredentialsInteractor
+import com.ihorvitruk.telegramclient.domain.interactor.NetworkInteractor
 import com.ihorvitruk.telegramclient.presentation.chat.list.ChatListView
 import com.ihorvitruk.telegramclient.presentation.chat.list.ChatListViewModel
 import com.ihorvitruk.telegramclient.presentation.login.phone.LoginPhoneView
@@ -13,7 +17,16 @@ import com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel
 
 class MainActivity : BaseActivity() {
 
-    private val splashViewModel = SplashViewModel(SplashInteractor(ValueRepository()))
+    private val splashViewModel = SplashViewModel(
+            CredentialsInteractor(
+                    ValueRepository(),
+                    KeyRepository(),
+                    EncryptionRepository()
+            ),
+            NetworkInteractor(
+                    NetworkRepository(this)
+            )
+    )
 
     private val loginPhoneViewModel = LoginPhoneViewModel()
 
@@ -33,7 +46,7 @@ class MainActivity : BaseActivity() {
             }
         }
     }
-    
+
     private fun showSplash() {
         val splashView = SplashView(this, splashViewModel)
         splashViewModel.router = splashRouter

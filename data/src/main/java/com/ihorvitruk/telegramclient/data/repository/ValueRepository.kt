@@ -5,7 +5,7 @@ import kotlinx.coroutines.experimental.CompletableDeferred
 import kotlinx.coroutines.experimental.Deferred
 
 class ValueRepository : IValueRepository {
-    override fun create(key: String, value: String): Deferred<String> {
+    override fun create(key: String, value: String?): Deferred<Unit> {
         return CompletableDeferred()
     }
 
@@ -13,7 +13,7 @@ class ValueRepository : IValueRepository {
         return CompletableDeferred()
     }
 
-    override fun update(key: String, newValue: String): Deferred<String> {
+    override fun update(key: String, newValue: String?): Deferred<Unit> {
         return CompletableDeferred()
     }
 

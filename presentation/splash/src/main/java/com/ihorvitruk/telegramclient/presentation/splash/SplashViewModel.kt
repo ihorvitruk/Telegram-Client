@@ -1,12 +1,13 @@
 package com.ihorvitruk.telegramclient.presentation.splash
 
 import android.arch.lifecycle.MutableLiveData
+import com.ihorvitruk.telegramclient.domain.interactor.CredentialsInteractor
 import com.ihorvitruk.telegramclient.domain.interactor.NetworkInteractor
-import com.ihorvitruk.telegramclient.domain.interactor.SplashInteractor
 import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
 
-class SplashViewModel(private val splashInteractor: SplashInteractor,
-                      private val networkInteractor: NetworkInteractor
+class SplashViewModel(
+        private val credentialsInteractor: CredentialsInteractor,
+        private val networkInteractor: NetworkInteractor
 ) : BaseViewModel<SplashRouter>() {
 
     val title = MutableLiveData<String>()
@@ -23,9 +24,14 @@ class SplashViewModel(private val splashInteractor: SplashInteractor,
     }
 
     private fun checkAuthorization() {
-        execute(splashInteractor.isUserLoggedIn(),
-                { router?.onAuthorizationChecked(it) },
-                { errorText.postValue(it.toString()) }
+        execute(credentialsInteractor.readApiId(),
+                {
+                    val isLoggedIn = it != null
+                    router?.onAuthorizationChecked(isLoggedIn)
+                },
+                {
+                    errorText.postValue(it.toString())
+                }
         )
     }
 }
