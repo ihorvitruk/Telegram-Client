@@ -1,10 +1,10 @@
 package com.ihorvitruk.telegramclient.data.repository
 
-import com.ihorvitruk.telegramclient.domain.repository.IValueRepository
+import com.ihorvitruk.telegramclient.domain.repository.IKeyValueRepository
 import kotlinx.coroutines.experimental.CompletableDeferred
 import kotlinx.coroutines.experimental.Deferred
 
-class ValueRepository : IValueRepository {
+class KeyValueRepository : IKeyValueRepository {
     override fun create(key: String, value: String?): Deferred<Unit> {
         return CompletableDeferred()
     }

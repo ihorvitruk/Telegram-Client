@@ -2,10 +2,10 @@ package com.ihorvitruk.telegramclient.domain.interactor
 
 import com.ihorvitruk.telegramclient.domain.repository.IEncryptionRepository
 import com.ihorvitruk.telegramclient.domain.repository.IKeyRepository
-import com.ihorvitruk.telegramclient.domain.repository.IValueRepository
+import com.ihorvitruk.telegramclient.domain.repository.IKeyValueRepository
 import kotlinx.coroutines.experimental.async
 
-class CredentialsInteractor(private val valueRepository: IValueRepository,
+class CredentialsInteractor(private val keyValueRepository: IKeyValueRepository,
                             private val keyRepository: IKeyRepository,
                             private val encryptionRepository: IEncryptionRepository) {
 
@@ -21,7 +21,7 @@ class CredentialsInteractor(private val valueRepository: IValueRepository,
     fun writeApiHash(apiHash: String) = writeCredential(KEY_API_HASH, apiHash)
 
     private fun readCredential(key: String) = async {
-        val cipheredCred = valueRepository.read(key).await()
+        val cipheredCred = keyValueRepository.read(key).await()
         val encryptionKey = keyRepository.readKey().await()
         val cred = encryptionRepository.decrypt(cipheredCred, encryptionKey).await()
         cred
@@ -30,6 +30,6 @@ class CredentialsInteractor(private val valueRepository: IValueRepository,
     private fun writeCredential(key: String, credential: String) = async {
         val encryptionKey = keyRepository.readKey().await()
         val cipheredCred = encryptionRepository.encrypt(credential, encryptionKey).await()
-        valueRepository.create(key, cipheredCred)
+        keyValueRepository.create(key, cipheredCred)
     }
 }

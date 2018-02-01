@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.ihorvitruk.telegramclient.data.repository.EncryptionRepository
 import com.ihorvitruk.telegramclient.data.repository.KeyRepository
 import com.ihorvitruk.telegramclient.data.repository.NetworkRepository
-import com.ihorvitruk.telegramclient.data.repository.ValueRepository
+import com.ihorvitruk.telegramclient.data.repository.KeyValueRepository
 import com.ihorvitruk.telegramclient.domain.interactor.CredentialsInteractor
 import com.ihorvitruk.telegramclient.domain.interactor.NetworkInteractor
 import com.ihorvitruk.telegramclient.presentation.chat.list.ChatListView
@@ -19,7 +19,7 @@ class MainActivity : BaseActivity() {
 
     private val splashViewModel = SplashViewModel(
             CredentialsInteractor(
-                    ValueRepository(),
+                    KeyValueRepository(),
                     KeyRepository(),
                     EncryptionRepository()
             ),

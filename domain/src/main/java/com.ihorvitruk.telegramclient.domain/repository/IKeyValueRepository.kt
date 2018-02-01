@@ -2,7 +2,7 @@ package com.ihorvitruk.telegramclient.domain.repository
 
 import kotlinx.coroutines.experimental.Deferred
 
-interface IValueRepository {
+interface IKeyValueRepository {
 
     fun create(key: String, value: String?): Deferred<Unit>
 
