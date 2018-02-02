@@ -1,4 +1,4 @@
-package com.ihorvitruk.telegramclient.app
+package com.ihorvitruk.telegramclient.app.activity
 
 import android.os.Bundle
 import com.ihorvitruk.telegramclient.data.repository.EncryptionRepository
@@ -15,15 +15,15 @@ import com.ihorvitruk.telegramclient.presentation.splash.SplashRouter
 import com.ihorvitruk.telegramclient.presentation.splash.SplashView
 import com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel
 
-class MainActivity : BaseActivity() {
+class ChatActivity : BaseActivity() {
 
-    private lateinit var splashViewModel: SplashViewModel
+   /* private lateinit var splashViewModel: SplashViewModel
 
     private val loginPhoneViewModel = LoginPhoneViewModel()
 
-    private val chatListViewModel = ChatListViewModel()
+    private val chatListViewModel = ChatListViewModel()*/
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         splashViewModel = SplashViewModel(
                 CredentialsInteractor(
@@ -36,9 +36,9 @@ class MainActivity : BaseActivity() {
                 )
         )
         showSplash()
-    }
+    }*/
 
-    private val splashRouter = object : SplashRouter() {
+    /*private val splashRouter = object : SplashRouter() {
         override fun onAuthorizationChecked(isLoggedIn: Boolean) {
             when (isLoggedIn) {
                 true -> showChatList()
@@ -61,5 +61,5 @@ class MainActivity : BaseActivity() {
     private fun showChatList() {
         val chatListView = ChatListView(this, chatListViewModel)
         replaceView(chatListView, chatListViewModel)
-    }
+    }*/
 }

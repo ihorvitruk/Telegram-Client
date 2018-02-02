@@ -31,6 +31,14 @@ dependencies {
     implementation project(':presentation:chat')
     implementation project(":data")
     kapt deps.databinding.compiler
+
+    implementation (deps.dagger.runtime) {
+        exclude (group:'javax.inject', module:'javax.inject')
+    }
+    annotationProcessor deps.dagger.compiler
+    implementation deps.dagger.android
+    annotationProcessor deps.dagger.androidProcessor
+    implementation deps.dagger.androidSupport
 }
 
 kotlin {

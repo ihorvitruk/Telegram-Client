@@ -1,4 +1,4 @@
-package com.ihorvitruk.telegramclient.app
+package com.ihorvitruk.telegramclient.app.activity
 
 import android.support.v7.app.AppCompatActivity
 import com.ihorvitruk.telegramclient.presentation.base.BaseView

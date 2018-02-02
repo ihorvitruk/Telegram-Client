@@ -24,7 +24,7 @@ versions.support = '26.1.0'
 versions.archLifecycle = '1.0.0'
 
 //Development
-versions.dagger = '2.12'
+versions.dagger = '2.14.1'
 
 ext.versions = versions
 
@@ -33,6 +33,10 @@ def deps = [:]
 def gradle = [:]
 gradle.plugin = "com.android.tools.build:gradle:$versions.gradlePlugin"
 deps.gradle = gradle
+
+def java = [:]
+java.inject = "javax.inject:javax.inject:1@jar"
+deps.java = java
 
 def kotlin = [:]
 kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
@@ -47,6 +51,10 @@ deps.support = support
 
 def dagger = [:]
 dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.androidProcessor = "com.google.dagger:dagger-android-processor:$versions.dagger"
+dagger.androidSupport = "com.google.dagger:dagger-android-support:$versions.dagger"
 deps.dagger = dagger
 
 def lifecycle = [:]

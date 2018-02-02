@@ -5,6 +5,7 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     api deps.kotlin.stdlib
     api deps.kotlin.coroutines
+    api deps.java.inject
     kapt deps.databinding.compiler
 }
 
