@@ -8,6 +8,15 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
+/*Classes that should be injected:
+
+Repository - singleton
+
+Router - activity scope
+Interactor - view scope
+ViewModel - view scope
+
+*/
 @Singleton
 @Component(
         modules = [
