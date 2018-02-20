@@ -2,13 +2,14 @@ package com.ihorvitruk.telegramclient.app
 
 import android.app.Activity
 import android.app.Application
-import dagger.android.DispatchingAndroidInjector
-import javax.inject.Inject
+import com.ihorvitruk.telegramclient.app.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
 
-
-class App : Application() {
+class App : Application(), HasActivityInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
@@ -23,7 +24,7 @@ class App : Application() {
                 .inject(this)
     }
 
-    fun activityInjector(): AndroidInjector<Activity> {
+    override fun activityInjector(): AndroidInjector<Activity> {
         return dispatchingAndroidInjector
     }
 }

@@ -1,8 +1,6 @@
-package com.ihorvitruk.telegramclient.app.activity
+package com.ihorvitruk.telegramclient.presentation.base
 
 import android.support.v7.app.AppCompatActivity
-import com.ihorvitruk.telegramclient.presentation.base.BaseView
-import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
 import java.util.*
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -18,7 +16,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun <VM : BaseViewModel<*>> addView(view: BaseView<*, VM>, viewModel: VM) {
-       //TODO implement using FrameLayout#addView
+        //TODO implement using FrameLayout#addView
         viewModelStack.push(viewModel).onCreate()
     }
 }

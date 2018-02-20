@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.ihorvitruk.telegramclient.app.activity.ChatActivity">
+        <activity android:name="com.ihorvitruk.telegramclient.app.activity.SingleActivity">
             <intent-filter android:order="1">
                 <action android:name="android.intent.action.VIEW" />
 
@@ -22,16 +22,12 @@
                     android:scheme="https" />
             </intent-filter>
 
-        </activity>
-
-        <activity android:name=".activity.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
-        <activity android:name=".activity.LoginActivity" />
+        </activity>
     </application>
 </manifest>

@@ -6,8 +6,9 @@ import com.ihorvitruk.telegramclient.domain.interactor.NetworkInteractor
 import com.ihorvitruk.telegramclient.presentation.base.BaseViewModel
 import com.ihorvitruk.telegramclient.presentation.base.UI
 import kotlinx.coroutines.experimental.async
+import javax.inject.Inject
 
-class SplashViewModel(
+class SplashViewModel @Inject constructor(
         private val credentialsInteractor: CredentialsInteractor,
         private val networkInteractor: NetworkInteractor
 ) : BaseViewModel<SplashRouter>() {

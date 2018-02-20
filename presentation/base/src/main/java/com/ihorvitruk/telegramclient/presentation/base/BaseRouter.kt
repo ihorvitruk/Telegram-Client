@@ -1,3 +1,5 @@
 package com.ihorvitruk.telegramclient.presentation.base
 
-abstract class BaseRouter
+import android.app.Activity
+
+abstract class BaseRouter(val activity: Activity)

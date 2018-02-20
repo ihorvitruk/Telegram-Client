@@ -11,21 +11,21 @@ interface RepositoryModule {
 
     @Singleton
     @Binds
-    fun bind(impl: AuthRepository): IAuthRepository
+    fun bindAuthRepository(impl: AuthRepository): IAuthRepository
 
     @Singleton
     @Binds
-    fun bind(impl: EncryptionKeyRepository): IEncryptionKeyRepository
+    fun bindEncryptionKeyRepository(impl: EncryptionKeyRepository): IEncryptionKeyRepository
 
     @Singleton
     @Binds
-    fun bind(impl: EncryptionRepository): IEncryptionRepository
+    fun bindEncryptionRepository(impl: EncryptionRepository): IEncryptionRepository
 
     @Singleton
     @Binds
-    fun bind(impl: KeyValueRepository): IKeyValueRepository
+    fun bindKeyValueRepository(impl: KeyValueRepository): IKeyValueRepository
 
     @Singleton
     @Binds
-    fun bind(impl: NetworkRepository): INetworkRepository
+    fun bindNetworkRepository(impl: NetworkRepository): INetworkRepository
 }

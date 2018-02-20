@@ -6,13 +6,13 @@ import kotlinx.coroutines.experimental.CompletableDeferred
 import kotlinx.coroutines.experimental.Deferred
 import org.drinkless.td.libcore.telegram.Client
 
-class AuthRepository(private val apiId: String,
+class AuthRepository(/*private val apiId: String,
                      private val apiHash: String,
                      private val databaseDirectory: String,
                      private val filesDirectory: String,
                      private val deviceModel: String,
                      private val systemVersion: String,
-                     private val systemLanguageCode: String,
+                     private val systemLanguageCode: String,*/
                      client: Client) : TdLibRepository(client), IAuthRepository {
     override fun sendCode(phoneNumber: String): Deferred<Unit> {
         return CompletableDeferred()

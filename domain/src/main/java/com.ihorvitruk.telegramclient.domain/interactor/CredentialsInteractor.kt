@@ -1,13 +1,15 @@
 package com.ihorvitruk.telegramclient.domain.interactor
 
-import com.ihorvitruk.telegramclient.domain.repository.IEncryptionRepository
 import com.ihorvitruk.telegramclient.domain.repository.IEncryptionKeyRepository
+import com.ihorvitruk.telegramclient.domain.repository.IEncryptionRepository
 import com.ihorvitruk.telegramclient.domain.repository.IKeyValueRepository
 import kotlinx.coroutines.experimental.async
+import javax.inject.Inject
 
-class CredentialsInteractor(private val keyValueRepository: IKeyValueRepository,
-                            private val encryptionKeyRepository: IEncryptionKeyRepository,
-                            private val encryptionRepository: IEncryptionRepository) {
+class CredentialsInteractor @Inject constructor(
+        private val keyValueRepository: IKeyValueRepository,
+        private val encryptionKeyRepository: IEncryptionKeyRepository,
+        private val encryptionRepository: IEncryptionRepository) {
 
     companion object {
         private val KEY_API_ID = "api_id"

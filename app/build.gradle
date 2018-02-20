@@ -35,9 +35,9 @@ dependencies {
     implementation (deps.dagger.runtime) {
         exclude (group:'javax.inject', module:'javax.inject')
     }
-    annotationProcessor deps.dagger.compiler
+    kapt deps.dagger.compiler
     implementation deps.dagger.android
-    annotationProcessor deps.dagger.androidProcessor
+    kapt deps.dagger.androidProcessor
     implementation deps.dagger.androidSupport
 }
 
