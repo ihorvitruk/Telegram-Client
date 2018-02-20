@@ -14,9 +14,12 @@ import java.security.KeyPairGenerator
 import java.security.KeyStore
 import java.security.PrivateKey
 import java.util.*
+import javax.inject.Inject
 import javax.security.auth.x500.X500Principal
 
-class EncryptionKeyRepository(private val context: Context) : IEncryptionKeyRepository {
+class EncryptionKeyRepository @Inject constructor(
+        private val context: Context
+) : IEncryptionKeyRepository {
 
     companion object {
         private val KEY_STORE_TYPE = "AndroidKeyStore"

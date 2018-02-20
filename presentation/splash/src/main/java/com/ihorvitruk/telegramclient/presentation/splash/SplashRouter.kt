@@ -1,10 +1,10 @@
 package com.ihorvitruk.telegramclient.presentation.splash
 
-import android.app.Activity
+import com.ihorvitruk.telegramclient.presentation.base.BaseActivity
 import com.ihorvitruk.telegramclient.presentation.base.BaseRouter
 import javax.inject.Inject
 
-class SplashRouter @Inject constructor(activity: Activity) : BaseRouter(activity) {
+class SplashRouter @Inject constructor(activity: BaseActivity) : BaseRouter(activity) {
 
     fun onAuthorizationChecked(isLoggedIn: Boolean) {
         when (isLoggedIn) {

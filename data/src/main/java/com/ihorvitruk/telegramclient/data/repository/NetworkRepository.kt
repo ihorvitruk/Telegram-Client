@@ -5,9 +5,10 @@ import android.net.ConnectivityManager
 import com.ihorvitruk.telegramclient.domain.exception.NoNetworkException
 import com.ihorvitruk.telegramclient.domain.repository.INetworkRepository
 import kotlinx.coroutines.experimental.async
+import javax.inject.Inject
 
 
-class NetworkRepository(private val cxt: Context): INetworkRepository {
+class NetworkRepository @Inject constructor(private val cxt: Context) : INetworkRepository {
 
     override fun checkNetworkConnection() = async {
         val connectivityManager = cxt.getSystemService(

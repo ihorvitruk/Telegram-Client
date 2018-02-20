@@ -7,25 +7,24 @@ import dagger.Module
 import javax.inject.Singleton
 
 @Module
-interface RepositoryModule {
+abstract class RepositoryModule {
+    @Singleton
+    @Binds
+    abstract fun bindAuthRepository(impl: AuthRepository): IAuthRepository
 
     @Singleton
     @Binds
-    fun bindAuthRepository(impl: AuthRepository): IAuthRepository
+    abstract fun bindEncryptionKeyRepository(impl: EncryptionKeyRepository): IEncryptionKeyRepository
 
     @Singleton
     @Binds
-    fun bindEncryptionKeyRepository(impl: EncryptionKeyRepository): IEncryptionKeyRepository
+    abstract fun bindEncryptionRepository(impl: EncryptionRepository): IEncryptionRepository
 
     @Singleton
     @Binds
-    fun bindEncryptionRepository(impl: EncryptionRepository): IEncryptionRepository
+    abstract fun bindKeyValueRepository(impl: KeyValueRepository): IKeyValueRepository
 
     @Singleton
     @Binds
-    fun bindKeyValueRepository(impl: KeyValueRepository): IKeyValueRepository
-
-    @Singleton
-    @Binds
-    fun bindNetworkRepository(impl: NetworkRepository): INetworkRepository
+    abstract fun bindNetworkRepository(impl: NetworkRepository): INetworkRepository
 }

@@ -5,8 +5,9 @@ import com.ihorvitruk.telegramclient.domain.repository.IEncryptionRepository
 import kotlinx.coroutines.experimental.async
 import java.security.Key
 import javax.crypto.Cipher
+import javax.inject.Inject
 
-class EncryptionRepository : IEncryptionRepository {
+class EncryptionRepository @Inject constructor() : IEncryptionRepository {
 
     companion object {
         private val transformation = "RSA/ECB/PKCS1Padding"

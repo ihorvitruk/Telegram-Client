@@ -3,9 +3,10 @@ package com.ihorvitruk.telegramclient.app.activity
 import android.os.Bundle
 import com.ihorvitruk.telegramclient.presentation.base.BaseActivity
 import com.ihorvitruk.telegramclient.presentation.splash.SplashViewModel
+import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class SingleActivity : BaseActivity() {
+class AppActivity : BaseActivity() {
 
     /* private lateinit var splashViewModel: SplashViewModel
 
@@ -17,6 +18,7 @@ class SingleActivity : BaseActivity() {
     lateinit var splashViewModel: SplashViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         showSplash()
     }
@@ -29,12 +31,12 @@ class SingleActivity : BaseActivity() {
     }
 
     private fun showLoginPhone() {
-       /* val loginPhoneView = LoginPhoneView(this, loginPhoneViewModel)
-        replaceView(loginPhoneView, loginPhoneViewModel)*/
+        /* val loginPhoneView = LoginPhoneView(this, loginPhoneViewModel)
+         replaceView(loginPhoneView, loginPhoneViewModel)*/
     }
 
     private fun showChatList() {
-       /* val chatListView = ChatListView(this, chatListViewModel)
-        replaceView(chatListView, chatListViewModel)*/
+        /* val chatListView = ChatListView(this, chatListViewModel)
+         replaceView(chatListView, chatListViewModel)*/
     }
 }

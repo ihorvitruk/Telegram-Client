@@ -4,8 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.ihorvitruk.telegramclient.domain.repository.IKeyValueRepository
 import kotlinx.coroutines.experimental.async
+import javax.inject.Inject
 
-class KeyValueRepository(context: Context) : IKeyValueRepository {
+class KeyValueRepository @Inject constructor(context: Context) : IKeyValueRepository {
 
     private var prefs: SharedPreferences
 

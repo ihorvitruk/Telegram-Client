@@ -5,8 +5,9 @@ import com.ihorvitruk.telegramclient.domain.repository.IAuthRepository
 import kotlinx.coroutines.experimental.CompletableDeferred
 import kotlinx.coroutines.experimental.Deferred
 import org.drinkless.td.libcore.telegram.Client
+import javax.inject.Inject
 
-class AuthRepository(/*private val apiId: String,
+class AuthRepository @Inject constructor(/*private val apiId: String,
                      private val apiHash: String,
                      private val databaseDirectory: String,
                      private val filesDirectory: String,
