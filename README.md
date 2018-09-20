@@ -8,7 +8,6 @@ Android App Architecture example using:
 * Dagger 2
 * Retrofit
 * Kotlin Coroutines
-* No-Fragments UI
 * Feature-moduling
 * Instant app support
 * DOZE mode adapted background work- 
